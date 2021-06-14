@@ -1,0 +1,22 @@
+<div class="container">
+  <div>
+    <button class="btn btn-outline-success" (click)="this.addNewPayment()">Add New Payment</button>
+  </div>
+  <div class="list-heading">
+    <h3>List of Payments</h3>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let payment of payments; let i = index">
+      <div class="mb-1"><h3>{{payment.cardType}}&nbsp;{{payment.cardVendor}}</h3></div>
+      <div class="mb-1"><h4>XXXXXXXXXXXX{{getCardLastFourDigit(payment.cardNumber)}}&nbsp;{{payment.expirationDate}}</h4></div>
+      <button 
+        class="btn btn-outline-info list-button" (click)="this.editPayment(payment)" >
+        Edit
+      </button>
+      <button 
+        class="btn btn-outline-danger list-button" (click)="this.deletePayment(payment)">
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>

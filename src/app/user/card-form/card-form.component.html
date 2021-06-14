@@ -1,0 +1,124 @@
+<div class="container">
+    <form [formGroup]="this.paymentFormGroup" (ngSubmit)="onSubmit()">
+        <div class="card-body">
+            <div class="card-title">
+                <h1><b>Add New Payment</b></h1>
+            </div>
+            <hr>
+            <div class="card-body">
+                <!--card type-->
+                <div>
+                    <div class="form-check form-check-inline">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            formControlName="cardType" 
+                            id="debit"
+                            value="Debit"
+                            [ngClass]= "{'is-invalid' : submitted && f.cardType.errors}">
+                        <label class="form-check-label" for="debit">Debit</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            formControlName="cardType" 
+                            id="credit" 
+                            value="Credit"
+                            [ngClass]= "{'is-invalid' : submitted && f.cardType.errors}">
+                        <label class="form-check-label" for="credit">Credit</label>
+                    </div>
+                    <div class="invalid-feedback" *ngIf="submitted && f.cardType.errors?.required">Card type is required</div>
+                </div>
+                <!--card vendor-->
+                <div>
+                    <div class="form-check form-check-inline">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            formControlName="cardVendor" 
+                            id="visa"
+                            value="Visa"
+                            [ngClass]= "{'is-invalid' : submitted && f.cardVendor.errors}">
+                        <label class="form-check-label" for="visa">Visa</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            formControlName="cardVendor" 
+                            id="mastercard"
+                            value="Mastercard"
+                            [ngClass]= "{'is-invalid' : submitted && f.cardVendor.errors}">
+                        <label class="form-check-label" for="mastercard">Mastercard</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            formControlName="cardVendor" 
+                            id="amex"
+                            value="AMEX"
+                            [ngClass]= "{'is-invalid' : submitted && f.cardVendor.errors}">
+                        <label class="form-check-label" for="amex">AMEX</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            formControlName="cardVendor" 
+                            id="discover"
+                            value="Discover"
+                            [ngClass]= "{'is-invalid' : submitted && f.cardVendor.errors}">
+                        <label class="form-check-label" for="discover">Discover</label>
+                    </div>
+                    <div class="invalid-feedback" *ngIf="submitted && f.cardVendor.errors?.required">Card vendor is required</div>
+                </div>
+                <!--card number-->
+                <div class="form-group row form-field">
+                    <label for="card-number">Card Number:</label>
+                    <input 
+                        id="card-number" 
+                        class="form-control" 
+                        type="text" 
+                        placeholder="xxxxxxxxxxxxxxxx" 
+                        required 
+                        formControlName="cardNumber"
+                        [ngClass]= "{'is-invalid' : submitted && f.cardNumber.errors}">
+                    <div class="invalid-feedback" *ngIf="submitted && f.cardNumber.errors?.required">Card number is required</div>
+                    <div class="invalid-feedback" *ngIf="submitted && (f.cardNumber.errors?.minlength || f.cardNumber.errors?.maxlength || f.cardNumber.errors?.pattern)">Card number should be 16 digits</div>
+                </div>
+                <!--security code-->
+                <div class="form-group row form-field">
+                    <label for="securityCode">Security Code:</label>
+                    <input 
+                        id="securityCode" 
+                        class="form-control" 
+                        type="text" 
+                        placeholder="000" 
+                        required 
+                        formControlName="securityCode"
+                        [ngClass]= "{'is-invalid' : submitted && f.securityCode.errors}">
+                    <div class="invalid-feedback" *ngIf="submitted && f.securityCode.errors?.required">Security code is required</div>
+                    <div class="invalid-feedback" *ngIf="submitted && (f.securityCode.errors?.minlength || f.securityCode.errors?.maxlength || f.securityCode.errors?.pattern)">Security code should be 3 to 4 digits</div>
+                </div>
+                <!--exp date-->
+                <div class="form-group row form-field">
+                    <label for="expirationDate">Expiration Date:</label>
+                    <input 
+                        id="expirationDate" 
+                        class="form-control" 
+                        type="date" 
+                        required 
+                        formControlName="expirationDate"
+                        [ngClass]= "{'is-invalid' : submitted && f.expirationDate.errors}">
+                    <div class="invalid-feedback" *ngIf="submitted && f.expirationDate.errors?.required">Expiration Date is required</div>
+                </div>
+                <div>
+                    <button type="reset" class="btn btn-secondary form-button" (click)="this.onNoClick()">Cancel</button>
+                    <button type="submit" class="btn btn-primary form-button">{{this.submitButton}}</button>
+                </div>
+            </div> 
+        </div>
+    </form>
+</div>

@@ -1,0 +1,59 @@
+<div class="container mt-5 mx-auto text-center login-wrapper">
+    <div class="card" *ngIf="!this.isLoading; else spinner">
+        <form class="login-form" [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
+            <div class="card-body">
+                <div class="card-title">
+                    <h1><b>Login</b></h1>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <div class="form-group row form-field">
+                            <label for="email">Email Address:</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="form-control" 
+                                placeholder="John@example.com" 
+                                required 
+                                formControlName="email"
+                                [ngClass]= "{'is-invalid' : submitted && f.email.errors}">
+                            <div class="invalid-feedback" *ngIf="submitted && f.email.errors?.required">Email is required</div >
+                            <div class="invalid-feedback" *ngIf="submitted && f.email.errors?.email">Please enter valid email address</div >
+                        </div>
+                    <div class="form-group row form-field">
+                        <label for="password">Password:</label>
+                        <input 
+                            id="password" 
+                            class="form-control" 
+                            type="password" 
+                            placeholder="Password" 
+                            required 
+                            formControlName="password"
+                            [ngClass]= "{'is-invalid' : submitted && f.password.errors}">
+                        <div class="invalid-feedback" *ngIf="submitted && f.password.errors?.required">Password is required</div>
+                    </div>
+                    <div class="form-check row form-field">
+                        <input class="form-check-input" type="checkbox" value="" id="rememberMe" formControlName="remember"/>
+                        <label class="form-check-label" for="rememberMe">Remember Me</label>
+                    </div>
+                    <div class="form-button">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <!--<button mat-stroked-button color="primary">Register</button>-->
+                    </div>
+                    <div class="form-link">
+                        <a routerLink='/forgot-password'>Forgot your password?</a>
+                    </div> 
+                </div> 
+            </div>
+        </form>
+    </div>
+    <ng-template #spinner>
+        <div class="d-flex align-items-center">
+            <strong>Loading...</strong>
+            <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+        </div>
+    </ng-template>
+    <!-- <div *ngIf="this.showToast" class="alert alert-danger" role="alert">
+        Invalid login credentials. Try again or register!
+    </div> -->
+</div>

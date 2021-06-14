@@ -1,0 +1,17 @@
+.spacer{
+    flex: 1 1 auto;
+}
+
+.toolbar-button{
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: medium;
+}
+
+.toolbar-header{
+    margin-left: 25px;
+}
+
+.toolbar-header > a{
+    color: white;
+}

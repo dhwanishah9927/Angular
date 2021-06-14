@@ -1,0 +1,69 @@
+<div class="container mt-5 mx-auto text-center register-wrapper">
+    <div class="card">
+        <form class="register-form" [formGroup]="registerFormGroup" (ngSubmit)="onSubmit()">
+            <div class="card-body">
+                <div class="card-title">
+                    <h1><b>Register</b></h1>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <div class="form-group row form-field">
+                        <label for="name">Name:</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            class="form-control" 
+                            placeholder="John Smith" 
+                            required 
+                            formControlName="name"
+                            [ngClass]= "{'is-invalid' : submitted && f.name.errors}">
+                        <div class="invalid-feedback" *ngIf="submitted && f.name.errors?.required">Email is required</div >
+                        <div class="invalid-feedback" *ngIf="submitted && f.name.errors?.pattern">Name should only contain letters</div >
+                    </div>
+                    <div class="form-group row form-field">
+                            <label for="email">Email Address:</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="form-control" 
+                                placeholder="John@example.com" 
+                                required 
+                                formControlName="email"
+                                [ngClass]= "{'is-invalid' : submitted && f.email.errors}">
+                            <div class="invalid-feedback" *ngIf="submitted && f.email.errors?.required">Email is required</div >
+                            <div class="invalid-feedback" *ngIf="submitted && f.email.errors?.email">Please enter valid email address</div >
+                    </div>
+                    <div class="form-group row form-field">
+                        <label for="password">Password:</label>
+                        <input 
+                            id="password" 
+                            class="form-control" 
+                            type="password" 
+                            placeholder="Password" 
+                            required 
+                            formControlName="password"
+                            [ngClass]= "{'is-invalid' : submitted && f.password.errors}">
+                        <div class="invalid-feedback" *ngIf="submitted && f.password.errors?.required">Password is required</div>
+                        <div class="invalid-feedback" *ngIf="submitted && f.password.errors?.minlength">Password should be of minimum of 6 characters</div>
+                    </div>
+                    <div class="form-group row form-field">
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input 
+                            id="confirmPassword" 
+                            class="form-control" 
+                            type="password" 
+                            placeholder="Confirm Password" 
+                            required 
+                            formControlName="confirmPassword"
+                            [ngClass]= "{'is-invalid' : submitted && f.confirmPassword.errors}">
+                        <div class="invalid-feedback" *ngIf="submitted && f.confirmPassword.errors?.required">Confirm Password is required</div>
+                        <div class="invalid-feedback" *ngIf="submitted && f.confirmPassword.errors?.misMatch">Password Mismatch.</div>
+                    </div>
+                    <div class="form-button">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </div> 
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+.register-wrapper{
+    width: 500px;
+    min-width: 200px;
+}
+
+.register-form{
+    margin-top: 15px;
+}
+
+.form-button{
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+

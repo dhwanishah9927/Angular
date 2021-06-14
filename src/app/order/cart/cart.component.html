@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div>
+        <h1>Content of your cart.</h1>
+        <h4>Total Amount: INR &#x20B9;</h4>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Order</th>
+                    <th>Quantity</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of this.cartItems; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{item.foodItem}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.cost | currency: 'INR'}}</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td></td>
+                    <td></td>
+                    <td>{{this.cartTotal | currency: 'INR'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <button type="button" class="btn btn-secondary cart-button" [routerLink]="['/home']">Home</button>
+        <button type="button" class="btn btn-primary cart-button" (click)="this.placeOrder()">Place Order</button>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Are you sure you want to add this item to cart?</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content class="dialog-content">
+    <p>Add following item to cart?</p>
+    <mat-label class="dialog-item">{{this.data.item}}&#x20B9;</mat-label>
+    <mat-divider></mat-divider>
+</div>
+<div mat-dialog-actions>
+  <button   type="button" 
+            class="btn btn-secondary dialog-button" 
+            (click)="onNoClick()">Close</button>
+  <button type="button" 
+         [mat-dialog-close]="true" 
+         cdkFocusInitial
+         class="btn btn-success dialog-button">Add to Cart</button>
+</div>

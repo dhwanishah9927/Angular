@@ -1,0 +1,28 @@
+.search-bar{
+    text-align: center;
+}
+
+.input-field{
+    width: 100%;
+    max-width: 700px;
+    min-width: 200px;
+}
+
+.food-items-box{
+    width: 90%;
+}
+
+.food-item{
+    width: 30%;
+    max-width: 570px;
+    min-width: 300px;
+}
+
+.food-item-image{
+    width: 100%;
+    height: calc(100% / 1.618);
+}
+
+.buy-order-button{
+    margin-left: 15px;
+}

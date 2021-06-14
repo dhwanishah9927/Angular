@@ -1,0 +1,40 @@
+<div class="container mx-auto w-50 mt-5 search-bar">
+    <div class="input-group mb-3 input-field">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <mat-icon>search</mat-icon>
+        </span>
+      </div>
+      <input  type="text" 
+              class="form-control" 
+              [ngModel]="this.filterString"  
+              (ngModelChange)="this.filterBy($event)"
+              placeholder="Search Item By Any Criteria..."/>
+    </div>
+</div>
+<div class="container-fluid mx-auto mt-3 food-items-box">
+    <div class="d-flex flex-wrap justify-content-center">
+        <div *ngFor="let item of foodItems" class="card mx-2 my-3 food-item">
+            <img class="food-item-image" [src]="item.image_url" alt="Food Image"/>
+            <div class="card-body">
+              <h2>{{item.name}}</h2>
+              <p>{{item.restaurent_name}} Restaurant | Rating {{item.rating | number}} | {{item.cost | currency: 'INR'}}</p>
+            </div>
+            <div class="card-body">
+              <button class="btn btn-outline-primary add-to-cart-button"
+                      (click)="this.addItemToDialogBox(item)">Add To Cart</button>
+              <button class="btn btn-outline-warning buy-order-button"
+                      (click)="this.buyThisItem(item)">Buy/Order</button>
+            </div>
+        </div>
+        <div *ngIf="foodItems.length == 0 && !this.isLoading">
+          <div class="alert alert-light" role="alert">
+            <h2>No Items Found!</h2>
+          </div>
+        </div>
+        <div *ngIf="this.isLoading" class="d-flex align-items-center">
+          <strong>Loading...</strong>
+          <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+        </div>
+    </div>
+</div>

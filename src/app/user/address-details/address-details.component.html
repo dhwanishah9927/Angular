@@ -1,0 +1,22 @@
+<div class="container">
+  <div>
+      <button class="btn btn-outline-success" (click)="this.addNewAddress()">Add New Address</button>
+  </div>
+  <div class="list-heading">
+    <h3>List of Address</h3>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let address of addresses; let i = index">
+      <div class="mb-1"><h3>{{address.name}}</h3></div>
+      <div class="mb-1"><h4>{{address.address}}</h4></div>
+      <button 
+        class="btn btn-outline-info list-button" (click)="this.editAddress(address)">
+        Edit
+      </button>
+      <button 
+        class="btn btn-outline-danger list-button" (click)="this.deleteAddress(address)">
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>

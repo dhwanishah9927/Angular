@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-3 profile-left-column">
+          <div class="card">
+              <div class="card-body">
+                <img [src]="this.userDetails.imageUrl" class="img-fluid" alt="User Profile Image"/>
+                <div class="card-text interests-list">
+                  <h4>Interests</h4>
+                  <ul>
+                    <li 
+                      *ngFor="let interests of userDetails.interests">{{interests}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-6 profile-right-column">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active">About</a>
+            </li>
+          </ul>
+          <table class="table table-borderless user-details">
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td>{{this.userDetails.name}}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>{{this.userDetails.id}}</td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td>{{this.userDetails.phone}}</td>
+              </tr>
+              <tr>
+                <td>Profession</td>
+                <td>{{this.userDetails.profession}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+.interests-list{
+    margin-top: 20px;
+}
+
+.interests-list > ul > li {
+    color: blue;
+}
+
+.user-details{
+    margin-top: 28px;
+}

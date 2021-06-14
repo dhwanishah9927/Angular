@@ -1,0 +1,33 @@
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand toolbar-header" [routerLink]="['/home']">FoodOrb</a>
+  <span class="spacer"></span>
+  <ul class="navbar-nav">
+    <li
+      *ngIf="!this.isLoggedIn"    
+      class="nav-item toolbar-button">
+      <a class="nav-link" [routerLink]="['/login']">Login</a>
+    </li>
+    <li 
+      *ngIf="!this.isLoggedIn"  
+      class="nav-item toolbar-button">
+      <a class="nav-link" [routerLink]="['/register']">Register</a>
+    </li>
+    <li 
+      *ngIf="this.isLoggedIn" 
+      class="nav-item toolbar-button">
+      <a [routerLink]="['/cart']" class="nav-link">Cart <span *ngIf="this.itemsInCart > 0" class="badge badge-info">{{this.itemsInCart}}</span></a>
+    </li>
+    <li class="nav-item dropdown toolbar-button"
+      *ngIf="this.isLoggedIn">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        {{this.username}}
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" [routerLink]="['/orders']">Track Order</a>
+        <a class="dropdown-item" [routerLink]="['/profile']">Profile</a>
+        <a class="dropdown-item" [routerLink]="['/settings']">Settings</a>
+        <a class="dropdown-item" (click)="this.logout()">Logout</a>
+      </div>
+    </li>
+  </ul>
+</nav>

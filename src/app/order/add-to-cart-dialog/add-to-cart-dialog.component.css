@@ -1,0 +1,14 @@
+.dialog-button{
+    margin-right: 25px;
+}
+
+.dialog-item{
+    border: 2px solid black;
+    line-height: 48px;
+    font-size: medium;
+    width: 100%;
+}
+
+.dialog-content{
+    margin-top: 15px;
+}
